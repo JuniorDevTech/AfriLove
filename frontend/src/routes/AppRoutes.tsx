@@ -1,31 +1,39 @@
+import { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
-import { HomePage } from "../features/home";
-import LoginPage from "../features/auth/pages/LoginPage";
-import RegisterPage from "../features/auth/pages/RegisterPage";
 
-const AppRoutes = () => {
+const HomePage = lazy(() =>
+  import("../features/home").then((module) => ({
+    default: module.HomePage,
+  })),
+);
+
+const LoginPage = lazy(() => import("../features/auth/pages/LoginPage"));
+
+const RegisterPage = lazy(() => import("../features/auth/pages/RegisterPage"));
+
+export default function AppRoutes() {
   return (
-    <Routes>
-      {/* Public */}
+    <Suspense
+      fallback={
+        <div className="flex min-h-screen items-center justify-center">
+          Chargement...
+        </div>
+      }
+    >
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
 
-      <Route path="/" element={<HomePage />} />
-
-      <Route path="/login" element={<LoginPage />} />
-
-      <Route path="/register" element={<RegisterPage />} />
-
-      {/* 404 */}
-
-      <Route
-        path="*"
-        element={
-          <div className="flex min-h-screen items-center justify-center text-2xl font-bold">
-            404 - Page introuvable
-          </div>
-        }
-      />
-    </Routes>
+        <Route
+          path="*"
+          element={
+            <div className="flex min-h-screen items-center justify-center text-2xl font-bold">
+              404 - Page introuvable
+            </div>
+          }
+        />
+      </Routes>
+    </Suspense>
   );
-};
-
-export default AppRoutes;
+}
