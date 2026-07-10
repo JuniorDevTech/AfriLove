@@ -16,14 +16,17 @@ const RegisterHero = () => {
       description="Créez gratuitement votre profil, découvrez des milliers de célibataires africains et trouvez une personne qui partage vos valeurs."
       stats={[
         {
+          id: 1,
           value: "2.5M+",
           label: "Membres",
         },
         {
+          id: 2,
           value: "180K+",
           label: "Couples",
         },
         {
+          id: 3,
           value: "54",
           label: "Pays",
         },

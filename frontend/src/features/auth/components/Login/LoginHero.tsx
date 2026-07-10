@@ -16,14 +16,17 @@ const LoginHero = () => {
       description="Rejoignez plus de 2,5 millions de célibataires africains qui recherchent une relation sérieuse partout dans le monde."
       stats={[
         {
+          id: 1,
           value: "2.5M+",
           label: "Membres",
         },
         {
+          id: 2,
           value: "180K+",
           label: "Couples",
         },
         {
+          id: 3,
           value: "54",
           label: "Pays",
         },

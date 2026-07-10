@@ -39,7 +39,7 @@ const statistics = [
 ];
 
 const StatisticsSection = () => {
-  const [ref, inView] = useInView({
+  const [ref] = useInView({
     triggerOnce: true,
     threshold: 0.3,
   });
