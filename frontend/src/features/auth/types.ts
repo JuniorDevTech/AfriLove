@@ -1,4 +1,5 @@
 export interface AuthHeroStat {
+  id: number;
   value: string;
   label: string;
 }

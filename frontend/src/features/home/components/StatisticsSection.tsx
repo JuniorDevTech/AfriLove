@@ -1,5 +1,4 @@
 import { memo } from "react";
-import CountUp from "react-countup";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { HeartHandshake, Users, Globe2, MessageCircle } from "lucide-react";
